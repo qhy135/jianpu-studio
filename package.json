@@ -1,0 +1,64 @@
+{
+  "name": "jianpu-studio",
+  "version": "1.0.0",
+  "description": "简谱工坊 — 写谱 / 读谱 / 播放，桌面应用",
+  "main": "electron/main.js",
+  "author": "qhy",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "vite": "vite",
+    "start": "electron .",
+    "dev": "concurrently -n VITE,ELECTRON -c cyan,magenta \"vite\" \"electron .\"",
+    "build:render": "vite build",
+    "pack": "vite build && electron-builder --win --x64",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3"
+  },
+  "build": {
+    "appId": "com.jianpu.studio",
+    "productName": "简谱工坊",
+    "copyright": "Copyright © 2026 qhy",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**",
+      "electron/**",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        },
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "简谱工坊"
+    },
+    "portable": {
+      "artifactName": "简谱工坊-便携版.exe"
+    }
+  }
+}
