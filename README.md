@@ -1,5 +1,5 @@
 # 简谱工坊 · JianPu Studio（桌面应用）
-
+## 注意：本工具使用AI辅助制作；
 基于 Electron + Vite + React + TypeScript 的**桌面应用程序**（非网页）：写谱 → 读谱 → 播放。
 
 ## 这是什么
